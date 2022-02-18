@@ -84,9 +84,10 @@
               "y": 12
             }
           ],
-          "label": "TITLE1",
+          "label": "USA Chart 1",
           "borderColor": "rgb(255, 99, 132)",
-          "backgroundColor": "rgba(255, 99, 132, 0.5)"
+          "backgroundColor": "rgba(255, 99, 132, 0.5)",
+          "hidden": false
         },
         {
           "id": 2,
@@ -168,8 +169,9 @@
               "y": 71
             }
           ],
-          "label": "TITLE2",
+          "label": "USA Chart 2",
           "borderColor": "rgb(53, 44, 162)",
+          "hidden":  false,
           "backgroundColor": "rgba(53, 44, 162, 0.5)"
         }
       ]
@@ -258,9 +260,10 @@
               "y": 71
             }
           ],
-          "label": "TITLE1",
+          "label": "Russia Chart 1 asdadasdasdsadasdasdas",
           "borderColor": "rgb(53, 44, 162)",
-          "backgroundColor": "rgba(53, 44, 162, 0.5)"
+          "backgroundColor": "rgba(53, 44, 162, 0.5)",
+          "hidden":  false
         },
         {
           "id": 2,
@@ -342,9 +345,10 @@
               "y": 12
             }
           ],
-          "label": "TITLE2",
-          "borderColor": "rgb(255, 99, 132)",
-          "backgroundColor": "rgba(255, 99, 132, 0.5)"
+          "label": "Russia Chart 2",
+          "borderColor": "rgb(245, 123, 66)",
+          "backgroundColor": "rgba(245, 123, 66, 0.5)",
+          "hidden":  false
         }
       ]
     },
@@ -432,9 +436,10 @@
               "y": 71
             }
           ],
-          "label": "TITLE1",
-          "borderColor": "rgb(53, 44, 162)",
-          "backgroundColor": "rgba(53, 44, 162, 0.5)"
+          "label": "United Kingdom Chart 1",
+          "borderColor": "rgb(245, 66, 209)",
+          "backgroundColor": "rgba(245, 66, 209, 0.5)",
+          "hidden":  false
         },
         {
           "id": 2,
@@ -516,9 +521,10 @@
               "y": 12
             }
           ],
-          "label": "TITLE2",
-          "borderColor": "rgb(255, 99, 132)",
-          "backgroundColor": "rgba(255, 99, 132, 0.5)"
+          "label": "United Kingdom Chart 2",
+          "borderColor": "rgb(56, 255, 63)",
+          "backgroundColor": "rgba(56, 255, 63, 0.5)",
+          "hidden":  false
         }
       ]
     }

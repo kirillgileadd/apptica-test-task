@@ -32,6 +32,18 @@ export const canvas = (state = initialState, action) => {
                 currentCountry: action.payload
             }
         }
+        case "TOGGLE_CHART_VISION": {
+            let {id, check} = action.payload
+            let newDatasets = state.country.datasets.map((item) => ({...item, hidden: id === item.id ? check : item.hidden }))
+            return {
+                ...state,
+                country: {
+                    ...state.country,
+                    datasets: newDatasets
+                }
+
+            }
+        }
         default:
             return state;
     }

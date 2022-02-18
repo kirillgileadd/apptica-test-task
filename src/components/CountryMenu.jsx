@@ -5,7 +5,7 @@ import {CustomButton} from "./Button";
 import russiaSvg from '../assets/img/russia.svg'
 import usaSvg from '../assets/img/united_states.svg'
 import ukSvg from '../assets/img/united_kingdon.svg'
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 
 const options = [
     {id: 1, body: 'USA', img: usaSvg},
@@ -44,7 +44,9 @@ export default function SimpleListMenu({onChangeCountry}) {
                     alignItems={'center'}
                 >
                     <img src={options[selectedIndex].img} alt=""/>
-                    {options[selectedIndex].body}
+                    <Typography sx={{ml: 1, fontWeight: 'bold'}}>
+                        {options[selectedIndex].body}
+                    </Typography>
                 </Box>
             </CustomButton>
             <Menu
@@ -64,7 +66,9 @@ export default function SimpleListMenu({onChangeCountry}) {
                         onClick={(event) => handleMenuItemClick(event, index)}
                     >
                         <img src={option.img} alt=""/>
-                        {option.body}
+                        <Typography sx={{ml: 1}}>
+                            {option.body}
+                        </Typography>
                     </MenuItem>
                 ))}
             </Menu>

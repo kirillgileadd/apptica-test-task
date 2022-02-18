@@ -31,3 +31,7 @@ export const onChangeCurrentCountry = (value) => ({
     type: 'CHANGE_CURRENT_COUNTRY',
     payload: value
 })
+export const onToggleChartVision = (value) => ({
+    type: 'TOGGLE_CHART_VISION',
+    payload: value
+})

@@ -12,7 +12,6 @@ const NavBar = ({onChangeCountry}) => {
                         Top History
                     </Typography>
                     <CountryMenu onChangeCountry={onChangeCountry}/>
-                    <CustomButton variant={'contained'}>Button</CustomButton>
                 </Toolbar>
             </AppBar>
         </Box>
