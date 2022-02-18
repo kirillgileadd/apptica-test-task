@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import NavBar from "./components/NavBar";
+import Canvas from "./components/Canvas";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchData} from "./redux/actions/canvas";
+import Loading from "./components/Loading";
+import {Box} from "@mui/material";
 
-function App() {
+export default function App() {
+  const dispatch = useDispatch()
+  const {country, loading, currentCountry} = useSelector(({canvas}) => canvas)
+  let loaded = !loading && country.hasOwnProperty("id")
+
+  useEffect(() => {
+    dispatch(fetchData(currentCountry))
+  }, [currentCountry])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+        <NavBar/>
+        <Box sx={{ m: {xs: 0, sm: 2}}}>
+          {
+            loaded ?  <Canvas data={country}/> : <Loading/>
+          }
+        </Box>
+      </div>
+  )
 }
-
-export default App;
