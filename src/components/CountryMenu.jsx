@@ -8,24 +8,22 @@ import ukSvg from '../assets/img/united_kingdon.svg'
 import {Box, Typography} from "@mui/material";
 
 const options = [
-    {id: 1, body: 'USA', img: usaSvg},
-    {id: 2, body: 'Russian Federation', img: russiaSvg},
-    {id: 3, body: 'United Kingdon', img: ukSvg},
+    {id: 1, body: 'USA', img: usaSvg, shortTitle: 'USA'},
+    {id: 2, body: 'Russian Federation', img: russiaSvg, shortTitle: 'RU'},
+    {id: 3, body: 'United Kingdom', img: ukSvg, shortTitle: 'UK'},
 ];
 
-export default function SimpleListMenu({onChangeCountry}) {
+export default function SimpleListMenu({onChangeCountry, currentCountry}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    let selectedIndex = currentCountry - 1
     const open = Boolean(anchorEl);
 
     const handleClickListItem = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMenuItemClick = (event, index) => {
-        let id = index + 1
+    const handleMenuItemClick = (id) => {
         onChangeCountry(id)
-        setSelectedIndex(index);
         setAnchorEl(null);
     };
 
@@ -45,7 +43,7 @@ export default function SimpleListMenu({onChangeCountry}) {
                 >
                     <img src={options[selectedIndex].img} alt=""/>
                     <Typography sx={{ml: 1, fontWeight: 'bold'}}>
-                        {options[selectedIndex].body}
+                        {options[selectedIndex].shortTitle}
                     </Typography>
                 </Box>
             </CustomButton>
@@ -59,11 +57,11 @@ export default function SimpleListMenu({onChangeCountry}) {
                     role: 'listbox',
                 }}
             >
-                {options.map((option, index) => (
+                {options.map((option) => (
                     <MenuItem
                         key={option.body}
-                        selected={index === selectedIndex}
-                        onClick={(event) => handleMenuItemClick(event, index)}
+                        selected={option.id === currentCountry}
+                        onClick={() => handleMenuItemClick(option.id)}
                     >
                         <img src={option.img} alt=""/>
                         <Typography sx={{ml: 1}}>

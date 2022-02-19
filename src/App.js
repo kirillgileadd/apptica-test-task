@@ -29,6 +29,7 @@ export default function App() {
     return (
         <div>
             <NavBar
+                currentCountry={currentCountry}
                 onChangeCountry={onChangeCountry}
                 data={country}
                 exportPngImage={exportPngImage}
