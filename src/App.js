@@ -4,7 +4,7 @@ import Canvas from "./components/Canvas";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchData, onChangeCurrentCountry, onToggleChartVision} from "./redux/actions/canvas";
 import Loading from "./components/Loading";
-import {Box} from "@mui/material";
+import {Box, Container} from "@mui/material";
 import LegendList from "./components/LegendList";
 import {useDownload} from "./hooks/useDownload";
 
@@ -27,14 +27,14 @@ export default function App() {
     }
 
     return (
-        <div>
+        <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
             <NavBar
                 currentCountry={currentCountry}
                 onChangeCountry={onChangeCountry}
                 data={country}
                 exportPngImage={exportPngImage}
                 exportCSV={exportCSV}/>
-            <Box sx={{m: {xs: 0, sm: 2}}}>
+            <Container sx={{m: {xs: 0, sm: 2, maxWidth: "1100px"}}}>
                 {
                     loaded ?
                         <>
@@ -48,8 +48,8 @@ export default function App() {
                         :
                         <Loading/>
                 }
-            </Box>
+            </Container>
 
-        </div>
+        </Box>
     )
 }

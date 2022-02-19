@@ -5,8 +5,8 @@ import {CustomButton} from "./Button";
 
 const NavBar = ({onChangeCountry, exportPngImage, exportCSV, data, currentCountry}) => {
     return (
-        <Box sx={{flexGrow: 1}}>
-            <AppBar position="static">
+        <Box sx={{flexGrow: 1, width: '100%'}}>
+            <AppBar position="relative">
                 <Toolbar sx={{justifyContent: {xs: 'center'}}}>
                     <Typography variant="h6" component="div" sx={{flexGrow: 1, display: {xs: 'none', sm: 'block'}}}>
                         Top History

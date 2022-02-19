@@ -17,7 +17,7 @@ const LegendItem = ({id, label, onToggleСhart, borderColor}) => {
 
     return (
         <ListItem
-            sx={{width: "250px"}}
+            sx={{width: {sx: "100%", sm: "250px"}}}
             disablePadding
         >
             <ListItemButton role={undefined} onClick={handleToggle} dense>
