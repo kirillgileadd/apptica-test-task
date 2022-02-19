@@ -11,7 +11,7 @@ import {useDownload} from "./hooks/useDownload";
 export default function App() {
     const dispatch = useDispatch()
     const {country, loading, currentCountry} = useSelector(({canvas}) => canvas)
-    const [chartRef, exportPngImage] = useDownload()
+    const [chartRef, exportPngImage, exportCSV] = useDownload()
     let loaded = !loading && country.hasOwnProperty("id")
 
     useEffect(() => {
@@ -28,13 +28,21 @@ export default function App() {
 
     return (
         <div>
-            <NavBar onChangeCountry={onChangeCountry} exportPngImage={exportPngImage}/>
+            <NavBar
+                onChangeCountry={onChangeCountry}
+                data={country}
+                exportPngImage={exportPngImage}
+                exportCSV={exportCSV}/>
             <Box sx={{m: {xs: 0, sm: 2}}}>
                 {
                     loaded ?
                         <>
-                            <Canvas chartRef={chartRef} data={country}/>
-                            <LegendList legendList={country.datasets} onToggleСhart={onToggleСhart}/>
+                            <Canvas
+                                chartRef={chartRef}
+                                data={country}/>
+                            <LegendList
+                                legendList={country.datasets}
+                                onToggleСhart={onToggleСhart}/>
                         </>
                         :
                         <Loading/>
