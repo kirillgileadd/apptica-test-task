@@ -1,46 +1,43 @@
 const initialState = {
-    country: {},
-    currentCountry: 1,
+    data: null,
+    labels: null,
     loading: false,
     error: null
 };
 
 export const canvas = (state = initialState, action) => {
     switch (action.type) {
-        case 'FETCH_COUNTRIES': {
+        case 'FETCH_DATA': {
             return {
                 ...state,
                 loading: true
             };
         }
-        case 'FETCH_COUNTRIES_SUCCESS': {
+        case 'FETCH_DATA_SUCCESS': {
             return {
                 ...state,
-                country: action.payload,
+                data: state.data ? [...state.data, ...action.payload] : [...action.payload],
                 loading: false
             }
         }
-        case "FETCH_COUNTRIES_ERROR": {
+        case "FETCH_DATA_ERROR": {
             return {
                 ...state,
                 error: action.payload
             }
         }
-        case "CHANGE_CURRENT_COUNTRY": {
+        case "CLEAR_DATA": {
             return {
                 ...state,
-                currentCountry: action.payload
+                data: null
             }
         }
         case "TOGGLE_CHART_VISION": {
             let {id, check} = action.payload
-            let newDatasets = state.country.datasets.map((item) => ({...item, hidden: id === item.id ? check : item.hidden }))
+            let newDatasets = state.data.map((item) => ({...item, hidden: id === item.id ? check : item.hidden }))
             return {
                 ...state,
-                country: {
-                    ...state.country,
-                    datasets: newDatasets
-                }
+                data: newDatasets
 
             }
         }

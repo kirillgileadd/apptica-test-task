@@ -20,7 +20,7 @@ const LegendItem = ({id, label, onToggleСhart, borderColor}) => {
             sx={{width: {sx: "100%", sm: "250px"}}}
             disablePadding
         >
-            <ListItemButton role={undefined} onClick={handleToggle} dense>
+            <ListItemButton onClick={handleToggle} dense>
                     <Checkbox
                         edge="start"
                         checked={check}

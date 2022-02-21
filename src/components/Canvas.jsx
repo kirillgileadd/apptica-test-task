@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import React from 'react';
 import {Line} from "react-chartjs-2";
 import {
     CategoryScale,
@@ -10,7 +10,6 @@ import {
     Title,
     Tooltip
 } from "chart.js";
-import {Button} from "@mui/material";
 
 ChartJS.register(
     CategoryScale,
@@ -38,8 +37,11 @@ export const options = {
     stacked: false,
     scales: {
         y: {
-            max: 100,
+            suggestedMax: 50,
             min: 0,
+            ticks: {
+                stepSize: 10
+            }
         },
         x: {
             grid: {
@@ -51,9 +53,13 @@ export const options = {
 
 
 const Canvas = ({data, chartRef}) => {
+    const canvasData = {
+        datasets: data
+    }
+
     return (
         <div>
-            <Line ref={chartRef} options={options} height={400} data={data}/>
+            <Line ref={chartRef} options={options} height={400} data={canvasData}/>
         </div>
     );
 };
